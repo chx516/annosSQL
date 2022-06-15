@@ -12,7 +12,7 @@ setup(
     description='python for mysql operation', # 包简单描述
     long_description=long_description, # 包长描述
     long_description_content_type='text/markdown', # 包长描述格式
-    url='https://github.com/ZanderZhao/pynlfff', # 包地址
+    url='https://gitee.com/chx516/annosSQL', # 包地址
     author='czh', # 作者
     author_email='utowe@qq.com', # 作者邮件
     license='MIT', # 协议
