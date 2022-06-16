@@ -1,8 +1,8 @@
 import time
 
-from annosSQL.Innos.Interface import Interface, Handler
-from annosSQL.Donos.doconn import Connection
-from annosSQL.Donos.dosql import execute
+from annosSQL.annosSQL.Innos.Interface import Interface, Handler
+from annosSQL.annosSQL.Donos.doconn import Connection
+from annosSQL.annosSQL.Donos.dosql import execute
 
 
 @Interface()

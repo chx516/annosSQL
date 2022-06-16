@@ -1,6 +1,4 @@
-import sys
-
-from annosSQL.test.tesys import Ut001
+from annosSQL.annosSQL.test.tesys import Ut001
 
 u=Ut001()
 u.handler()

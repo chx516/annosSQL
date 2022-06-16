@@ -8,7 +8,7 @@ long_description = (here / 'README.md').read_text(encoding='utf-8')
 
 setup(
     name='annosSQL', # 包名
-    version='1.0.0', # 包版本
+    version='1.1.1', # 包版本
     description='python for mysql operation', # 包简单描述
     long_description=long_description, # 包长描述
     long_description_content_type='text/markdown', # 包长描述格式
@@ -22,6 +22,6 @@ setup(
         'annosSQL.Innos',
         'annosSQL.test',
     ],
-    install_requires=['itertools', 'pymysql', 'copy'], # 依赖
+    install_requires=['pymysql'], # 依赖
     python_requires='>=3' # python版本依赖
 )
