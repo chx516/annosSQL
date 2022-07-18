@@ -1,18 +1,3 @@
-# annosSQL
-
-#### 介绍
-annosSQL是一个基于python实现对mysql、oracle、sqllite数据库交互库，基础是基于对pymysql等库的封装，其用法有些特别。annosSQL中实现了一种缓存算法（通过LRU算法实现），对于近期相同sql的查询，
-会优先从缓存获取，当缓存空间不存在该数据时，再次访问数据库。
-
-#### 安装教程
-```shell
-pip install annosSQL
-```
-
-#### 使用说明
-
-1. 使用案例
-```python
 from annosSQL.Innos.Interface import Interface, Handler
 from annosSQL.Donos.doconn import Connection
 from annosSQL.Donos.dosql import execute
@@ -91,18 +76,5 @@ if __name__=='__main__':
 
     print('a1返回的数据：')
     a1 = t4.a1()
-    print(a1)    
-
-```
-2. xxxx
-3. xxxx
-#### 其他说明
-> #{} %s {}
-    # #{}、 {} 普通占位符
-    # %s 多行占位符 支持数据多行数据类型：列表与元组
-    # select * from  ->  A(select) user
-    # insert into table values(S{,}[])
-    # insert into table values(C{})
-    # insert into table values(L{})
-    # insert into table values(T{%s,%s})
+    print(a1)
 

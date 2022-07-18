@@ -93,8 +93,10 @@ class ExecSQL():
             reint=cursor.execute(sql)
             conn.commit()
             result=cursor.fetchall()
+            # print(list(result))
             if returnType.__name__ == 'list':
-                return list(chain.from_iterable(result))
+                return [list(i) for i in result]
+                # return list(chain.from_iterable(result))
             if returnType.__name__ == 'int':
                 return reint
             if returnType.__name__ == 'bool':
