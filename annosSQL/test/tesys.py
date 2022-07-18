@@ -1,8 +1,12 @@
 import time
-
-from annosSQL.annosSQL.Innos.Interface import Interface, Handler
-from annosSQL.annosSQL.Donos.doconn import Connection
-from annosSQL.annosSQL.Donos.dosql import execute
+try:
+    from annosSQL.Innos.Interface import Interface, Handler
+    from annosSQL.Donos.doconn import Connection
+    from annosSQL.Donos.dosql import execute
+except:
+    from annosSQL.annosSQL.Innos.Interface import Interface, Handler
+    from annosSQL.annosSQL.Donos.doconn import Connection
+    from annosSQL.annosSQL.Donos.dosql import execute
 
 
 @Interface()
@@ -34,14 +38,17 @@ class Ut001():
     @execute(sql='A(select) aoa_user')
     def test2(self, A) -> list: pass
 
-    @execute(sql='insert into user(user,password,z) values(S{,}[3])')
-    def inserts(self,S:str) -> list:pass
+    @execute(sql='insert into user(user,password,z) values(S{,})')
+    def inserts(self,S:str) -> int:pass
 
     @execute(sql="A(Select) user")
     def allUser(self,A)->dict:pass
 
-    @execute(sql="select * from  user where id={1}")
+    @execute(sql="select * from  user where id=#{1}")
     def iduser(self, id:int) -> dict: pass
+
+    @execute(sql="delete from user where id={}")
+    def delt01(self,int:id) -> int:pass
 
 
 
@@ -96,4 +103,16 @@ if __name__=='__main__':
 #     0.0011932849884033203 0.002812623977661133
 
 
-
+'''
+Ut001-annosSQL.Donos.dosql-execute:
+{
+    connPool,
+    doExec:{
+        select,
+        insert,
+        update,
+        delete
+    },
+    cachePool,
+}
+'''

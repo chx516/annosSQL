@@ -69,7 +69,7 @@ class Handler():
             for k in k_list:
                 if not isinstance(vars(cla).get(k).__self__,Handler) and not isinstance(vars(cla).get(k).__self__,Connection):
                     z=vars(cla).get(k).__self__
-                    _tmp=sys.modules[cla.__name__+'-'+z.__class__.__module__+'-'+z.__class__.__name__]
+                    _tmp=sys.modules[cla.__name__+'-'+z.__class__.__module__+'-'+z.__class__.__name__]['doExec']
                     l='''cla.%s = _tmp['%s'].sqlHandler''' % (k, k)
                     exec(l)
             return cla
@@ -84,15 +84,23 @@ class IOCHandler():
         fun=self.ioc_handler
         return fun
     def ioc_handler(self,obj):
+
         if not dict(sys.modules).__contains__(str(obj.cla).split(' ')[1].split('.')[0]+'-'+obj.__class__.__module__ + '-' + obj.__class__.__name__):
             # sys.modules[obj.__class__.__module__ + '-' + obj.__class__.__name__] = {}
-            sys.modules[str(obj.cla).split(' ')[1].split('.')[0]+'-'+obj.__class__.__module__ + '-' + obj.__class__.__name__]={}
-        # tmp = sys.modules[obj.__class__.__module__ + '-' + obj.__class__.__name__]
-        # tmp[obj.cla.__name__] = obj
-        # sys.modules[obj.__class__.__module__ + '-' + obj.__class__.__name__] = tmp
-        tmp2=sys.modules[str(obj.cla).split(' ')[1].split('.')[0]+'-'+obj.__class__.__module__ + '-' + obj.__class__.__name__]
-        tmp2[obj.cla.__name__] = obj
-        sys.modules[str(obj.cla).split(' ')[1].split('.')[0]+'-'+obj.__class__.__module__ + '-' + obj.__class__.__name__] = tmp2
+            sys.modules[str(obj.cla).split(' ')[1].split('.')[0]+'-'+obj.__class__.__module__ + '-' + obj.__class__.__name__]={
+                'connPool':{},
+                'doExec':{},
+                'cachePool':{
+                    'logsTable':[]
+                }
+            }
+        tmp=sys.modules[str(obj.cla).split(' ')[1].split('.')[0]+'-'+obj.__class__.__module__ + '-' + obj.__class__.__name__]['doExec']
+        tmp[obj.cla.__name__] = obj
+        sys.modules[str(obj.cla).split(' ')[1].split('.')[0]+'-'+obj.__class__.__module__ + '-' + obj.__class__.__name__]['doExec'] = tmp
+        # tmp2=sys.modules[str(obj.cla).split(' ')[1].split('.')[0]+'-'+obj.__class__.__module__ + '-' + obj.__class__.__name__]
+        # tmp2[obj.cla.__name__] = obj
+        # sys.modules[str(obj.cla).split(' ')[1].split('.')[0]+'-'+obj.__class__.__module__ + '-' + obj.__class__.__name__] = tmp2
+        # print(sys.modules[str(obj.cla).split(' ')[1].split('.')[0]+'-'+obj.__class__.__module__ + '-' + obj.__class__.__name__])
 
 
 
