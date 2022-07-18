@@ -74,8 +74,8 @@ if __name__=='__main__':
     print(p2)
 
     print('p3返回的数据：')
-    p2 = t4.p2()
-    print(p2)
+    p3 = t4.p3()
+    print(p3)
 
     print('s1返回的数据：')
     s1 = t4.s1(1)
