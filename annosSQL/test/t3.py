@@ -2,35 +2,31 @@ from annosSQL.test.tesys import Ut001
 import sys
 u=Ut001()
 u.handler()
-# data1=u.allUser()
+
+data1=u.allUser()
 data2=u.iduser(1)
 data2=u.iduser(2)
 data2=u.iduser(3)
 data2=u.iduser(4)
 data2=u.iduser(5)
-data2=u.iduser(6)
-data2=u.iduser(7)
-data2=u.iduser(8)
-data2=u.iduser(9)
-data2=u.iduser(10)
-data2=u.iduser(3)
+print(data1)
+# data2=u.iduser(6)
+# data2=u.iduser(7)
+# data2=u.iduser(8)
+# data2=u.iduser(9)
+# data2=u.iduser(10)
+# data2=u.iduser(3)
 # data2=u.iduser(2)
-data2=u.iduser(11)
-data2=u.iduser(12)
-data2=u.iduser(13)
+# data2=u.iduser(11)
+# data2=u.iduser(12)
+# data2=u.iduser(13)
 
 
 
-
-
-
-
-
-
-
-# r=u.inserts("cai2022,0987654321,999")
-# print(data2)
-
+r=u.inserts("cai2022,0987654321,999")
+# print(r)
+data1=u.allUser()
+print(data1)
 # print(len(data1))
 # data1=u.allUser()
 # print(data1)
